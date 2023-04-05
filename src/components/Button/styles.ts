@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Container = styled.button`
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
-  
+
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -20,7 +20,7 @@ export const Container = styled.button`
         &:hover {
           background-color: var(--color-secondary-light);
         }
-      `
+      `;
     }
 
     return css`
@@ -34,6 +34,6 @@ export const Container = styled.button`
         background-color: var(--color-white);
         color: var(--color-primary);
       }
-    `
+    `;
   }}
-`
+`;

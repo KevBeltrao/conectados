@@ -3,8 +3,8 @@ import { type PropsWithChildren, type FC } from 'react';
 import Button from './Button';
 
 interface WrapperProps extends PropsWithChildren {
-  onClick?: () => void
-  variation?: 'primary' | 'bordered'
+  onClick?: () => void;
+  variation?: 'primary' | 'bordered';
 }
 
 const Wrapper: FC<WrapperProps> = ({
@@ -13,10 +13,9 @@ const Wrapper: FC<WrapperProps> = ({
   children,
 }) => {
   return (
-    <Button
-      onClick={onClick}
-      variation={variation}
-    >{children}</Button>
+    <Button onClick={onClick} variation={variation}>
+      {children}
+    </Button>
   );
 };
 

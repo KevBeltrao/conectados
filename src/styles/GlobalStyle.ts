@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
@@ -42,6 +42,11 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     cursor: pointer;
   }
+`;
+
+export const AppContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
 `;
 
 export default GlobalStyle;
