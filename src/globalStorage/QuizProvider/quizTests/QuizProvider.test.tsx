@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { type FC, useContext } from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 
-import QuizProvider, { QuizContext } from './QuizProvider';
+import QuizProvider, { QuizContext } from '../QuizProvider';
 
 describe('QuizProvider', () => {
   afterEach(() => {

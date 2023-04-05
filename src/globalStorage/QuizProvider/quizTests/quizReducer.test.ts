@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 
-import quizReducer from './quizReducer';
-import * as quizReducers from './quizReducers';
-import { type QuizState } from './quizTypes';
+import quizReducer from '../quizReducer';
+import * as quizReducers from '../quizReducers';
+import { type QuizState } from '../quizTypes';
 
 describe('quizReducer', () => {
   const fakeQuiz: QuizState = [
