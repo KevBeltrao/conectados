@@ -15,8 +15,42 @@ module.exports = {
     sourceType: 'module',
     project: ['tsconfig.json'],
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'detect-bad-words'],
   rules: {
+    '@typescript-eslint/comma-dangle': [2, 'always-multiline'],
+    '@typescript-eslint/semi': ['error', 'always'],
+    'comma-dangle': [2, 'always-multiline'],
+    'detect-bad-words/in-code': 'error',
+    'detect-bad-words/in-comment': 'error',
+    eqeqeq: [2, 'always'],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'always',
+      },
+    ],
+    'max-len': [
+      'error',
+      {
+        code: 80,
+        ignoreComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+      },
+    ],
+    'no-alert': 'warn',
+    'no-console': 'warn',
+    'no-duplicate-imports': 'error',
+    'no-implicit-coercion': 'error',
     'prettier/prettier': [
       'error',
       {
@@ -29,20 +63,7 @@ module.exports = {
         printWidth: 80,
       },
     ],
-    'comma-dangle': [2, 'always-multiline'],
-    '@typescript-eslint/comma-dangle': [2, 'always-multiline'],
     'react/react-in-jsx-scope': 'off',
     semi: [2, 'always'],
-    '@typescript-eslint/semi': [2, 'always'],
-    'max-len': [
-      'error',
-      {
-        code: 80,
-        ignoreComments: true,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-    ],
   },
 };

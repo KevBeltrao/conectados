@@ -1,4 +1,5 @@
-import { type PropsWithChildren, type FC } from 'react';
+import { type FC, type PropsWithChildren } from 'react';
+
 import { Container } from './styles';
 
 interface ButtonProps extends PropsWithChildren {

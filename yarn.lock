@@ -1003,6 +1003,11 @@ babel-plugin-syntax-jsx@^6.18.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
   integrity sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==
 
+badwords@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/badwords/-/badwords-1.0.0.tgz#5bfe152838a32958c0045c81fb4cb51c10ed781c"
+  integrity sha512-lvRlf54xyNuIeYHHdNYlLQNVc2l5v91v/3mD92fny4GUXXkdaiTImqSCFRBiPBtOASS7TMZjzkMq0cYsPtAbxA==
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -1653,6 +1658,14 @@ eslint-module-utils@^2.7.4:
   integrity sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==
   dependencies:
     debug "^3.2.7"
+
+eslint-plugin-detect-bad-words@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-detect-bad-words/-/eslint-plugin-detect-bad-words-1.0.7.tgz#b841e792cc628a44ca997fc4538c09abf7ad604e"
+  integrity sha512-wuLNf+VoEe60VcR9GIvLicHB5hqKBiQaRNr7gwsRGxIprSZunawpwwWFjO/89YsshXrC+icx5qdqoWoMYrBjLw==
+  dependencies:
+    badwords "^1.0.0"
+    requireindex "~1.1.0"
 
 eslint-plugin-es@^4.1.0:
   version "4.1.0"
@@ -3522,6 +3535,11 @@ regexpp@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==
+
+requireindex@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
+  integrity sha512-LBnkqsDE7BZKvqylbmn7lTIVdpx4K/QCduRATpO5R+wtPmky/a8pN1bO2D6wXppn1497AJF9mNjqAXr6bdl9jg==
 
 requires-port@^1.0.0:
   version "1.0.0"
