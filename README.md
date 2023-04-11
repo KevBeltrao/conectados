@@ -96,3 +96,16 @@ The three main topics of the description are:
 
 Of course it's not mandatory, sometimes it won't make sense to add some of these.\
 But add descriptive PRs with pictures and referencing code when needed.
+
+
+## Scripts 
+
+Create a new component:
+```bash
+  yarn generate component
+```
+
+Create a new page:
+```bash 
+  yarn generate page
+```
