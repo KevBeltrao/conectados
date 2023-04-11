@@ -44,6 +44,10 @@ $ yarn dev
 # unit tests
 
 $ yarn test
+
+# unit tests watch
+
+$ yarn test:watch
 ```
 
 ## Contribute 🤝
