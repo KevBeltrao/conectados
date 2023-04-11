@@ -22,11 +22,6 @@
 
 $ yarn
 
-
-# Install husky
-
-$ yarn husky install
-
 ```
 
   
@@ -35,23 +30,8 @@ $ yarn husky install
 
 
 ```bash
-# Run on android
 
-$ yarn android
-
-
-# Run on ios
-
-$ yarn ios
-
-
-# Run on web
-
-$ yarn web
-
-# Run Metro Bundler
-
-yarn start
+$ yarn dev
 
 ```
 
