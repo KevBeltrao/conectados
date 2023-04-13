@@ -5,6 +5,7 @@ import {
   useReducer,
   type Dispatch,
 } from 'react';
+
 import quizReducer from './quizReducer';
 import { type QuizAction, type QuizState } from './quizTypes';
 
