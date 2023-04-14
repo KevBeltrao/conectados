@@ -1,22 +1,13 @@
-import { type PropsWithChildren, type FC } from 'react';
+import { type FC, type PropsWithChildren } from 'react';
 
 import Button from './Button';
 
 interface WrapperProps extends PropsWithChildren {
   onClick?: () => void;
-  variation?: 'primary' | 'bordered';
 }
 
-const Wrapper: FC<WrapperProps> = ({
-  onClick = () => {},
-  variation = 'primary',
-  children,
-}) => {
-  return (
-    <Button onClick={onClick} variation={variation}>
-      {children}
-    </Button>
-  );
+const Wrapper: FC<WrapperProps> = ({ onClick = () => {}, children }) => {
+  return <Button onClick={onClick}>{children}</Button>;
 };
 
 export default Wrapper;
