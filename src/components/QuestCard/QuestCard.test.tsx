@@ -21,7 +21,7 @@ describe('QuestCard', () => {
     expect(screen.getByText(questCardProps.title)).toBeInTheDocument();
   });
 
-  it('Should not redirect on click when status is answered', async () => {
+  it('Should not redirect to targetUrl on click when status is answered', async () => {
     const user = userEvent.setup();
     render(<QuestCard {...questCardProps} status="answered" />, {
       wrapper: BrowserRouter,
@@ -34,7 +34,7 @@ describe('QuestCard', () => {
     expect(window.location.pathname).toBe('/');
   });
 
-  it('Should not redirect on click when status is disabled', async () => {
+  it('Should not redirect to targetUrl on click when status is disabled', async () => {
     const user = userEvent.setup();
     render(<QuestCard {...questCardProps} status="disabled" />, {
       wrapper: BrowserRouter,
@@ -47,7 +47,7 @@ describe('QuestCard', () => {
     expect(window.location.pathname).toBe('/');
   });
 
-  it('Should redirect on click when status is pending', async () => {
+  it('Should redirect to targetUrl on click when status is pending', async () => {
     const user = userEvent.setup();
 
     render(<QuestCard status="pending" {...questCardProps} />, {
