@@ -6,35 +6,26 @@ import { describe, expect, it } from 'vitest';
 import QuestCard from '.';
 
 describe('QuestCard', () => {
-  const targetUrl = '/quest1';
+  const questCardProps = {
+    questName: 'Quest 1',
+    title: 'Você sabe?',
+    targetUrl: '/quest1',
+  };
 
-  it('Should render QuestCard component', async () => {
-    render(
-      <QuestCard
-        status="answered"
-        questName="Quest 1"
-        title="Você sabe?"
-        targetUrl="/quest1"
-      />,
-      { wrapper: BrowserRouter },
-    );
+  it('Should render QuestCard component with title and questName', async () => {
+    render(<QuestCard {...questCardProps} status="answered" />, {
+      wrapper: BrowserRouter,
+    });
 
-    const card = screen.getByText(/Quest 1/i);
-
-    expect(card).toBeInTheDocument();
+    expect(screen.getByText(questCardProps.questName)).toBeInTheDocument();
+    expect(screen.getByText(questCardProps.title)).toBeInTheDocument();
   });
 
   it('Should not redirect on click when status is answered', async () => {
     const user = userEvent.setup();
-    render(
-      <QuestCard
-        status="answered"
-        questName="Quest 1"
-        title="Você sabe?"
-        targetUrl={targetUrl}
-      />,
-      { wrapper: BrowserRouter },
-    );
+    render(<QuestCard {...questCardProps} status="answered" />, {
+      wrapper: BrowserRouter,
+    });
 
     const card = screen.getByRole('button');
 
@@ -45,15 +36,9 @@ describe('QuestCard', () => {
 
   it('Should not redirect on click when status is disabled', async () => {
     const user = userEvent.setup();
-    render(
-      <QuestCard
-        status="disabled"
-        questName="Quest 1"
-        title="Você sabe?"
-        targetUrl={targetUrl}
-      />,
-      { wrapper: BrowserRouter },
-    );
+    render(<QuestCard {...questCardProps} status="disabled" />, {
+      wrapper: BrowserRouter,
+    });
 
     const card = screen.getByRole('button');
 
@@ -65,20 +50,14 @@ describe('QuestCard', () => {
   it('Should redirect on click when status is pending', async () => {
     const user = userEvent.setup();
 
-    render(
-      <QuestCard
-        status="pending"
-        questName="Quest 1"
-        title="Você sabe?"
-        targetUrl={targetUrl}
-      />,
-      { wrapper: BrowserRouter },
-    );
+    render(<QuestCard status="pending" {...questCardProps} />, {
+      wrapper: BrowserRouter,
+    });
 
     const card = screen.getByRole('button');
 
     await user.click(card);
 
-    expect(window.location.pathname).toBe(targetUrl);
+    expect(window.location.pathname).toBe(questCardProps.targetUrl);
   });
 });
