@@ -4,10 +4,9 @@ import { describe, it, expect } from 'vitest';
 import {{pascalCase name}} from '.';
 
 describe('{{pascalCase name}}', () => {
-it('Should render {{pascalCase name}} component', () => {
-render(
-<{{pascalCase name}} />);
+  it('Should render {{pascalCase name}} component', () => {
+    render(<{{pascalCase name}} />);
 
-expect(screen.getByText(/{{pascalCase name}}/i)).toBeInTheDocument();
-});
+    expect(screen.getByText(/{{pascalCase name}}/i)).toBeInTheDocument();
+  });
 });
