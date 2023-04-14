@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     --color-primary: #3C234D;
     --color-primary-light: #452d53;
     --color-primary-lightest: #533069;
+    --color-primary-lightest-opacity: #53306980;
+    --color-disabled-opacity: #FFFFFF0D;
+    --color-disabled-text: #A59FA8;
     --color-white: #F8F9FA;
     --color-secondary: #C6D40F;
     --color-secondary-light: #ECF57F;
@@ -26,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: var(--color-primary);
+    color: var(--color-white);
   }
 
   a {
