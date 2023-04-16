@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     --color-primary-lightest-opacity: #53306980;
     --color-disabled-opacity: #FFFFFF0D;
     --color-disabled-text: #A59FA8;
+    --color-gray: #6C757D;
     --color-purple-saturated: #5343ab;
     --color-purple-unsaturated: #9488D4;
     --color-white: #F8F9FA;

@@ -13,7 +13,8 @@ export const Container = styled.button`
   border-color: var(--color-secondary);
   background-color: var(--color-secondary);
 
-  &:hover {
+  &[disabled] {
     background-color: var(--color-secondary-light);
+    color: var(--color-gray);
   }
 `;
