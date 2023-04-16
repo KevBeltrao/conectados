@@ -14,6 +14,7 @@ const Home: FC<HomeTypes> = () => {
       <h1>Home</h1>
       <Button
         onClick={() => {
+          // eslint-disable-next-line no-alert
           alert('Entrou');
         }}
       >
@@ -22,6 +23,7 @@ const Home: FC<HomeTypes> = () => {
       <Button
         disabled
         onClick={() => {
+          // eslint-disable-next-line no-alert
           alert('Entrou');
         }}
       >
