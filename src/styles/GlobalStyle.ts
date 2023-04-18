@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     --color-purple-saturated: #5343ab;
     --color-purple-unsaturated: #9488D4;
     --color-white: #F8F9FA;
+    --color-white-secondary: #DEE2E6;
     --color-secondary: #C6D40F;
     --color-secondary-light: #ECF57F;
   }
@@ -33,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--color-primary);
     color: var(--color-white);
-    
+
     ul:has(.quest-option) {
       counter-reset: quest-option;
 
@@ -56,6 +57,22 @@ const GlobalStyle = createGlobalStyle`
   button {
     border: 0;
     cursor: pointer;
+  }
+
+  p {
+    margin-bottom: 4px;
+  }
+
+  h1 {
+    color: var(--color-white);
+    font-size: 1.8em;
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    color: var(--color-white-secondary);
+    font-size: 1.25em;
+    margin-bottom: 4px;
   }
 `;
 
