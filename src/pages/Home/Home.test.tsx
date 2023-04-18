@@ -8,6 +8,6 @@ describe('Home', () => {
   it('Should render Home component', () => {
     render(<Home />, { wrapper: BrowserRouter });
 
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
+    expect(screen.getByText(/É hora do jogo!/i)).toBeInTheDocument();
   });
 });

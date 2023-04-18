@@ -1,26 +1,40 @@
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 
-import PrizeModal from '../../components/PrizeModal';
+import Progress from '../../components/ProgressBar';
+import CardQuest from '../../components/QuestCard';
 
-import { Container } from './styles';
-
+import { Container, ProgressContainer, QuestsWrapper } from './styles';
 interface HomeTypes {
   initial?: number;
 }
 
 const Home: FC<HomeTypes> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
   return (
     <Container>
-      <h1>Home</h1>
+      <h1>É hora do jogo!</h1>
+      <h2>Complete as quests corretamente e obtenha uma surpresa no final</h2>
 
-      <PrizeModal
-        open={isModalOpen}
-        closeModal={() => {
-          setIsModalOpen(false);
-        }}
-      />
+      <ProgressContainer>
+        <Progress progress={0} progressTitle="Quests finalizadas" />
+
+        {/* TODO: Points badge here */}
+        <div> </div>
+      </ProgressContainer>
+
+      <QuestsWrapper>
+        <CardQuest
+          status="answered"
+          questName="Quest 1"
+          title="Você sabe?"
+          targetUrl="/quest1"
+        />
+        <CardQuest
+          status="answered"
+          questName="Quest 1"
+          title="Você sabe?"
+          targetUrl="/quest1"
+        />
+      </QuestsWrapper>
     </Container>
   );
 };
