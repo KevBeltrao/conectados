@@ -39,9 +39,20 @@ export default (plop) => {
       {
         type: 'input',
         name: 'name',
-        message: 'What is your page?',
+        message: 'What is your page name?',
       },
     ],
     actions: generateActions('pages'),
+  });
+  plop.setGenerator('layout', {
+    description: 'Create a layout',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your layout name?',
+      },
+    ],
+    actions: generateActions('layouts'),
   });
 };
