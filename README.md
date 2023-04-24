@@ -93,3 +93,8 @@ Create a new page:
 ```bash 
   yarn generate page
 ```
+
+Create a new layout:
+```bash 
+  yarn generate layout
+```
