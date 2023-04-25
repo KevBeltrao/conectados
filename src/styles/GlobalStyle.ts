@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --color-disabled-opacity: #FFFFFF0D;
     --color-disabled-text: #A59FA8;
     --color-gray: #6C757D;
+    --color-gray-400: #CED4DA;
     --color-purple-saturated: #5343ab;
     --color-purple-unsaturated: #9488D4;
     --color-white: #F8F9FA;
