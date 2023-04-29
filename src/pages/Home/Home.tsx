@@ -1,9 +1,11 @@
 import { type FC } from 'react';
 
+import PointsBadge from '../../components/PointsBadge/PointsBadge';
 import ProgressBar from '../../components/ProgressBar';
 import CardQuest from '../../components/QuestCard';
 import { type QuizState } from '../../globalStorage/QuizProvider';
 
+import diamondIcon from './assets/diamond.svg';
 import {
   Container,
   InfoContainer,
@@ -29,9 +31,10 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
           <ProgressBar progress={progress} />
         </ProgressContainer>
 
-        <div>
+        <PointsBadge>
+          <img src={diamondIcon} alt="Pontos" />
           {points} ponto{points >= 2 ? 's' : ''}
-        </div>
+        </PointsBadge>
       </InfoContainer>
 
       <QuestsWrapper>
