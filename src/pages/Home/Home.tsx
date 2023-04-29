@@ -1,26 +1,50 @@
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 
-import PrizeModal from '../../components/PrizeModal';
+import ProgressBar from '../../components/ProgressBar';
+import CardQuest from '../../components/QuestCard';
+import { type QuizState } from '../../globalStorage/QuizProvider';
 
-import { Container } from './styles';
-
+import {
+  Container,
+  InfoContainer,
+  ProgressContainer,
+  QuestsWrapper,
+} from './styles';
 interface HomeTypes {
-  initial?: number;
+  progress: number;
+  points: number;
+  getStatus: (questionIndex: number) => 'answered' | 'pending' | 'disabled';
+  quizState: QuizState;
 }
 
-const Home: FC<HomeTypes> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
+const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
   return (
     <Container>
-      <h1>Home</h1>
+      <h1>É hora do jogo!</h1>
+      <h2>Complete as quests corretamente e obtenha uma surpresa no final</h2>
 
-      <PrizeModal
-        open={isModalOpen}
-        closeModal={() => {
-          setIsModalOpen(false);
-        }}
-      />
+      <InfoContainer>
+        <ProgressContainer>
+          <p>Quests finalizadas</p>
+          <ProgressBar progress={progress} />
+        </ProgressContainer>
+
+        <div>
+          {points} ponto{points >= 2 ? 's' : ''}
+        </div>
+      </InfoContainer>
+
+      <QuestsWrapper>
+        {quizState.map((quizQuestion, index) => (
+          <CardQuest
+            key={quizQuestion.question}
+            title={`Quest ${index + 1}`}
+            questName={quizQuestion.question.substring(0, 25)}
+            targetUrl={`/quest-${index + 1}`}
+            status={getStatus(index)}
+          />
+        ))}
+      </QuestsWrapper>
     </Container>
   );
 };
