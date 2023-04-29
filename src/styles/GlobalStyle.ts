@@ -36,14 +36,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--color-primary);
     color: var(--color-white);
-
-    ul:has(.quest-option) {
-      counter-reset: quest-option;
-
-      li {
-        counter-increment: quest-option;
-      }
-    }
   }
 
   a {
