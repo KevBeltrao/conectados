@@ -1,5 +1,6 @@
 import { type Dispatch, type FC, type SetStateAction } from 'react';
 
+import Feedback from '../../components/Feedback';
 import QuestListComponent from '../../components/QuestListComponent/QuestListComponent';
 import { type QuizQuestion } from '../../globalStorage/QuizProvider';
 import QuestLayout from '../../layouts/QuestLayout';
@@ -12,6 +13,8 @@ interface QuestListPageTypes {
   selectedAnswer: number | null;
   setSelectedAnswer: Dispatch<SetStateAction<null | number>>;
   handleSubmit: () => void;
+  isFeedbackVisible: boolean;
+  setIsFeedbackVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 const QuestListPage: FC<QuestListPageTypes> = ({
@@ -20,6 +23,8 @@ const QuestListPage: FC<QuestListPageTypes> = ({
   selectedAnswer,
   setSelectedAnswer,
   handleSubmit,
+  isFeedbackVisible,
+  setIsFeedbackVisible,
 }) => (
   <Container>
     <QuestLayout
@@ -36,6 +41,16 @@ const QuestListPage: FC<QuestListPageTypes> = ({
         />
       </Content>
     </QuestLayout>
+
+    <Feedback
+      isVisible={isFeedbackVisible}
+      setIsVisible={setIsFeedbackVisible}
+      type={
+        quizQuestion.correctAnswer === quizQuestion.userAnswer
+          ? 'success'
+          : 'failure'
+      }
+    />
   </Container>
 );
 
