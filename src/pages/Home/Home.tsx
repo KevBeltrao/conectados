@@ -1,39 +1,49 @@
 import { type FC } from 'react';
 
-import Progress from '../../components/ProgressBar';
+import ProgressBar from '../../components/ProgressBar';
 import CardQuest from '../../components/QuestCard';
+import { type QuizState } from '../../globalStorage/QuizProvider';
 
-import { Container, ProgressContainer, QuestsWrapper } from './styles';
+import {
+  Container,
+  InfoContainer,
+  ProgressContainer,
+  QuestsWrapper,
+} from './styles';
 interface HomeTypes {
-  initial?: number;
+  progress: number;
+  points: number;
+  getStatus: (questionIndex: number) => 'answered' | 'pending' | 'disabled';
+  quizState: QuizState;
 }
 
-const Home: FC<HomeTypes> = () => {
+const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
   return (
     <Container>
       <h1>É hora do jogo!</h1>
       <h2>Complete as quests corretamente e obtenha uma surpresa no final</h2>
 
-      <ProgressContainer>
-        <Progress progress={0} progressTitle="Quests finalizadas" />
+      <InfoContainer>
+        <ProgressContainer>
+          <p>Quests finalizadas</p>
+          <ProgressBar progress={progress} />
+        </ProgressContainer>
 
-        {/* TODO: Points badge here */}
-        <div> </div>
-      </ProgressContainer>
+        <div>
+          {points} ponto{points >= 2 ? 's' : ''}
+        </div>
+      </InfoContainer>
 
       <QuestsWrapper>
-        <CardQuest
-          status="answered"
-          questName="Quest 1"
-          title="Você sabe?"
-          targetUrl="/quest1"
-        />
-        <CardQuest
-          status="answered"
-          questName="Quest 1"
-          title="Você sabe?"
-          targetUrl="/quest1"
-        />
+        {quizState.map((quizQuestion, index) => (
+          <CardQuest
+            key={quizQuestion.question}
+            title={`Quest ${index + 1}`}
+            questName={quizQuestion.question.substring(0, 25)}
+            targetUrl={`/quest-${index + 1}`}
+            status={getStatus(index)}
+          />
+        ))}
       </QuestsWrapper>
     </Container>
   );
