@@ -80,6 +80,7 @@ const GlobalStyle = createGlobalStyle`
 export const AppContainer = styled.div`
   width: 100%;
   min-height: 100vh;
+  overflow-y: auto;
 `;
 
 export default GlobalStyle;

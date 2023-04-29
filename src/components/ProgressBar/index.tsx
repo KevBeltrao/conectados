@@ -4,16 +4,10 @@ import ProgressBar from './ProgressBar';
 
 interface WrapperTypes {
   progress: number;
-  progressTitle: string;
 }
 
-const Wrapper: FC<WrapperTypes> = ({ progress, progressTitle }) => {
-  return (
-    <div>
-      <p>{progressTitle}</p>
-      <ProgressBar progress={progress} />
-    </div>
-  );
+const Wrapper: FC<WrapperTypes> = ({ progress }) => {
+  return <ProgressBar progress={progress} />;
 };
 
 export default Wrapper;
