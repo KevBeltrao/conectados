@@ -1,5 +1,4 @@
 import { useCallback, useState, type Dispatch, type FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import {
   type QuizAction,
@@ -21,7 +20,7 @@ const Wrapper: FC<WrapperTypes> = ({
   quizDispatch,
   questionIndex,
 }) => {
-  const navigate = useNavigate();
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
 
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(
     quizQuestion.userAnswer,
@@ -38,7 +37,7 @@ const Wrapper: FC<WrapperTypes> = ({
       },
     });
 
-    navigate('/');
+    setIsFeedbackVisible(true);
   }, [selectedAnswer]);
 
   return (
@@ -48,6 +47,8 @@ const Wrapper: FC<WrapperTypes> = ({
       selectedAnswer={selectedAnswer}
       setSelectedAnswer={setSelectedAnswer}
       handleSubmit={handleSubmit}
+      isFeedbackVisible={isFeedbackVisible}
+      setIsFeedbackVisible={setIsFeedbackVisible}
     />
   );
 };
