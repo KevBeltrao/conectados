@@ -1,4 +1,4 @@
-import { answer, init } from './quizReducers';
+import { answer, init, reset } from './quizReducers';
 import { type QuizAction, type QuizState } from './quizTypes';
 
 const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
@@ -7,6 +7,8 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
       return init();
     case 'ANSWER':
       return answer(state, action.payload);
+    case 'RESET':
+      return reset();
     default:
       return state;
   }

@@ -43,7 +43,6 @@ export const Container = styled.button`
     transition: background-color 0.3s, border-color 0.3s;
   }
 
-  &:hover,
   &.active {
     border-color: #f0ced9e5;
     background-color: #c7638333;

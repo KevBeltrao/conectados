@@ -11,7 +11,7 @@ interface WrapperTypes {
 }
 
 const Wrapper: FC<WrapperTypes> = () => {
-  const { quizState } = useContext(QuizContext);
+  const { quizState, quizDispatch } = useContext(QuizContext);
 
   const { progress, points, currentQuestionIndex } = useMemo(() => {
     return {
@@ -35,6 +35,7 @@ const Wrapper: FC<WrapperTypes> = () => {
       points={points}
       quizState={quizState}
       getStatus={getStatus}
+      quizDispatch={quizDispatch}
     />
   );
 };

@@ -1,4 +1,4 @@
-export type QuizActionType = 'INIT' | 'ANSWER';
+export type QuizActionType = 'INIT' | 'ANSWER' | 'RESET';
 
 export interface QuizActionPayload {
   index: number;

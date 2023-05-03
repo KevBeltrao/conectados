@@ -21,6 +21,18 @@ export const init = (): QuizState => {
 
   return JSON.parse(localStorageQuiz) as QuizState;
 };
+export const reset = (): QuizState => {
+  const { questions: envQuiz } = JSON.parse(import.meta.env.VITE_QUIZ) as {
+    questions: Array<Omit<QuizQuestion, 'userAnswer'>>;
+  };
+
+  const quiz = envQuiz.map((question) => ({
+    ...question,
+    userAnswer: null,
+  }));
+  localStorage.setItem('quiz', JSON.stringify(quiz));
+  return quiz;
+};
 
 export const answer = (
   state: QuizState,
