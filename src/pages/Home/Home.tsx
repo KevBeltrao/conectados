@@ -42,7 +42,7 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
           <CardQuest
             key={quizQuestion.question}
             title={`Quest ${index + 1}`}
-            questName={quizQuestion.question.substring(0, 25)}
+            questName={quizQuestion.previewName}
             targetUrl={`/quest-${index + 1}`}
             status={getStatus(index)}
           />

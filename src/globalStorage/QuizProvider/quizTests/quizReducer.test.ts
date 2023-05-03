@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import quizReducer from '../quizReducer';
 import * as quizReducers from '../quizReducers';
@@ -11,12 +11,14 @@ describe('quizReducer', () => {
       correctAnswer: 0,
       question: 'question 1?',
       userAnswer: null,
+      previewName: 'quest 1',
     },
     {
       answers: ['d', 'e', 'f'],
       correctAnswer: 1,
       question: 'question 2?',
       userAnswer: null,
+      previewName: 'quest 2',
     },
   ];
 
