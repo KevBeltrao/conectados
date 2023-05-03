@@ -21,7 +21,7 @@ interface HomeTypes {
 }
 
 const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCloseModal: () => void = () => {
     setIsModalOpen(false);
