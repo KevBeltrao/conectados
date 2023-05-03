@@ -5,7 +5,7 @@ export const Container = styled(Modal).attrs({
   style: {
     overlay: {
       ...Modal.defaultStyles.overlay,
-      backgroundColor: 'rgba(0, 0, 0, 0.20)',
+      backgroundColor: 'rgba(0, 0, 0, 0.50)',
     },
   },
 })``;

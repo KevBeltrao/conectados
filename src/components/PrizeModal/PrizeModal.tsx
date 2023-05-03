@@ -3,6 +3,7 @@ import { type FC, type FormEvent, type ChangeEvent } from 'react';
 import Button from '../Button';
 
 import mailIcon from './assets/mail.svg';
+import loadingGif from './assets/loading.gif';
 import {
   Container,
   Content,
@@ -17,9 +18,10 @@ import {
 interface PrizeModalTypes {
   open: boolean;
   shouldShowLabel: boolean;
+  isSubmitLoading: boolean;
 
   handleEmailChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmitForm: (event: FormEvent<HTMLFormElement>) => void;
+  handleSubmitForm: (event: FormEvent<HTMLFormElement>) => Promise<void>;
   closeModal: () => void;
 }
 
@@ -30,6 +32,7 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
     handleSubmitForm,
     shouldShowLabel,
     closeModal,
+    isSubmitLoading,
   } = props;
 
   return (
@@ -51,7 +54,9 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
 
         <FormContainer
           data-testid="prize-modal-form"
-          onSubmit={handleSubmitForm}
+          onSubmit={(event) => {
+            void handleSubmitForm(event);
+          }}
         >
           <EmailFieldset>
             <EmailLegend>{shouldShowLabel ? 'E-mail' : ''}</EmailLegend>
@@ -67,7 +72,9 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
             />
           </EmailFieldset>
 
-          <Button>Enviar</Button>
+          <Button disabled={isSubmitLoading}>
+            {isSubmitLoading ? <img width={20} src={loadingGif} /> : 'Enviar'}
+          </Button>
         </FormContainer>
       </Container>
     </div>

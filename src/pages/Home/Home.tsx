@@ -1,9 +1,10 @@
-import { type FC } from 'react';
+import { useEffect, type FC, useState } from 'react';
 
 import PointsBadge from '../../components/PointsBadge/PointsBadge';
 import ProgressBar from '../../components/ProgressBar';
 import CardQuest from '../../components/QuestCard';
 import { type QuizState } from '../../globalStorage/QuizProvider';
+import PrizeModal from '../../components/PrizeModal';
 
 import diamondIcon from './assets/diamond.svg';
 import {
@@ -20,6 +21,20 @@ interface HomeTypes {
 }
 
 const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const handleCloseModal: () => void = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const allQuestsIsDone = progress === 1;
+
+    if (allQuestsIsDone) {
+      setIsModalOpen(true);
+    }
+  }, [progress]);
+
   return (
     <Container>
       <h1>É hora do jogo!</h1>
@@ -48,6 +63,8 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
           />
         ))}
       </QuestsWrapper>
+
+      <PrizeModal open={isModalOpen} closeModal={handleCloseModal} />
     </Container>
   );
 };
