@@ -35,6 +35,8 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
     isSubmitLoading,
   } = props;
 
+  const shouldDisabledButton = isSubmitLoading || !shouldShowLabel;
+
   return (
     <div data-testid="prize-modal">
       <Container
@@ -59,7 +61,7 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
           }}
         >
           <EmailFieldset>
-            <EmailLegend>{shouldShowLabel ? 'E-mail' : ''}</EmailLegend>
+            {shouldShowLabel && <EmailLegend>E-mail</EmailLegend>}
 
             <img src={mailIcon} />
 
@@ -72,7 +74,7 @@ const PrizeModal: FC<PrizeModalTypes> = (props) => {
             />
           </EmailFieldset>
 
-          <Button disabled={isSubmitLoading}>
+          <Button disabled={shouldDisabledButton}>
             {isSubmitLoading ? <img width={20} src={loadingGif} /> : 'Enviar'}
           </Button>
         </FormContainer>

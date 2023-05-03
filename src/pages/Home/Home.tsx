@@ -5,6 +5,7 @@ import ProgressBar from '../../components/ProgressBar';
 import CardQuest from '../../components/QuestCard';
 import { type QuizState } from '../../globalStorage/QuizProvider';
 import PrizeModal from '../../components/PrizeModal';
+import Button from '../../components/Button';
 
 import diamondIcon from './assets/diamond.svg';
 import {
@@ -37,6 +38,8 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
 
   return (
     <Container>
+      <PrizeModal open={isModalOpen} closeModal={handleCloseModal} />
+
       <h1>É hora do jogo!</h1>
       <h2>Complete as quests corretamente e obtenha uma surpresa no final</h2>
 
@@ -64,7 +67,15 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
         ))}
       </QuestsWrapper>
 
-      <PrizeModal open={isModalOpen} closeModal={handleCloseModal} />
+      {progress > 0.8 ? (
+        <Button
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          Resgatar prêmio
+        </Button>
+      ) : null}
     </Container>
   );
 };

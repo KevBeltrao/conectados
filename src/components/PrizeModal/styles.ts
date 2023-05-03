@@ -31,13 +31,13 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 1.5rem;
 `;
 
 export const Description = styled.p`
   margin: 16px 0 32px 0;
 
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
 `;
 
@@ -50,7 +50,7 @@ export const Input = styled.input`
 
   color: white;
 
-  font-size: 14px;
+  font-size: 0.875rem;
 
   &::placeholder {
     color: var(--color-gray-400);
@@ -68,20 +68,33 @@ export const FormContainer = styled.form`
 
 export const EmailFieldset = styled.fieldset`
   display: flex;
+  align-items: center;
   gap: 8px;
 
   width: 100%;
+  height: fit-content;
 
-  padding: 8px 16px;
+  padding: 14px 16px;
 
   border: 1px solid white;
   border-radius: 30px;
-  overflow: hidden;
+
+  position: relative;
+
+  input {
+    font-size: 0.875rem;
+    height: fit-content;
+  }
 `;
 
 export const EmailLegend = styled.legend`
   margin-left: -3px;
   padding: 0 4px;
 
-  font-size: 12px;
+  font-size: 0.75rem;
+
+  background-color: var(--color-primary);
+
+  position: absolute;
+  top: -7px;
 `;
