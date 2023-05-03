@@ -68,6 +68,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.25em;
     margin-bottom: 4px;
   }
+
+  .Toastify__toast  {
+    border-radius: 8px;
+  }
 `;
 
 export const AppContainer = styled.div`

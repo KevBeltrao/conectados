@@ -1,4 +1,6 @@
 import { useContext, useEffect, type FC } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { QuizContext } from './globalStorage/QuizProvider';
 import AppRoutes from './routes';
@@ -14,6 +16,8 @@ const App: FC = () => {
   return (
     <AppContainer>
       <AppRoutes />
+
+      <ToastContainer hideProgressBar />
 
       <GlobalStyle />
     </AppContainer>

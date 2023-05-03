@@ -1,9 +1,11 @@
-import { type FC } from 'react';
+import { useEffect, type FC, useState } from 'react';
 
 import PointsBadge from '../../components/PointsBadge/PointsBadge';
 import ProgressBar from '../../components/ProgressBar';
 import CardQuest from '../../components/QuestCard';
 import { type QuizState } from '../../globalStorage/QuizProvider';
+import PrizeModal from '../../components/PrizeModal';
+import Button from '../../components/Button';
 
 import diamondIcon from './assets/diamond.svg';
 import {
@@ -20,8 +22,24 @@ interface HomeTypes {
 }
 
 const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCloseModal: () => void = () => {
+    setIsModalOpen(false);
+  };
+
+  const areAllQuestsDone = progress === 1;
+
+  useEffect(() => {
+    if (areAllQuestsDone) {
+      setIsModalOpen(true);
+    }
+  }, [progress]);
+
   return (
     <Container>
+      <PrizeModal open={isModalOpen} closeModal={handleCloseModal} />
+
       <h1>É hora do jogo!</h1>
       <h2>Complete as quests corretamente e obtenha uma surpresa no final</h2>
 
@@ -48,6 +66,16 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
           />
         ))}
       </QuestsWrapper>
+
+      {areAllQuestsDone ? (
+        <Button
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          Resgatar prêmio
+        </Button>
+      ) : null}
     </Container>
   );
 };
