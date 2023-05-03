@@ -15,5 +15,6 @@ export interface QuizQuestion {
   answers: string[];
   correctAnswer: number;
   userAnswer: number | null;
+  previewName: string;
 }
 export type QuizState = QuizQuestion[];

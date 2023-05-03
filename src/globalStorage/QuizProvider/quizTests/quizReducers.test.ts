@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { answer, init } from '../quizReducers';
 import { type QuizState } from '../quizTypes';
@@ -10,12 +10,14 @@ describe('quizReducers', () => {
       correctAnswer: 0,
       question: 'question 1?',
       userAnswer: null,
+      previewName: 'quest 1',
     },
     {
       answers: ['d', 'e', 'f'],
       correctAnswer: 1,
       question: 'question 2?',
       userAnswer: null,
+      previewName: 'quest 2',
     },
   ];
 
@@ -32,11 +34,13 @@ describe('quizReducers', () => {
           answers: ['a', 'b', 'c'],
           correctAnswer: 0,
           question: 'question 1?',
+          previewName: 'quest 1',
         },
         {
           answers: ['d', 'e', 'f'],
           correctAnswer: 1,
           question: 'question 2?',
+          previewName: 'quest 2',
         },
       ],
     }));
@@ -75,12 +79,14 @@ describe('quizReducers', () => {
         correctAnswer: 0,
         question: 'question 1?',
         userAnswer: null,
+        previewName: 'quest 1',
       },
       {
         answers: ['d', 'e', 'f'],
         correctAnswer: 1,
         question: 'question 2?',
         userAnswer: 1,
+        previewName: 'quest 2',
       },
     ]);
   });
