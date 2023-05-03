@@ -17,6 +17,7 @@ describe('QuestListPage', () => {
             answers: ['Option 1'],
             correctAnswer: 0,
             userAnswer: 0,
+            previewName: 'Question 1',
           }}
         />
       </BrowserRouter>,
