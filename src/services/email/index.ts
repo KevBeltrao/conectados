@@ -18,8 +18,8 @@ export const sendEmail: SendEmailI = async (
   try {
     const dataToForm = {
       user_email: userEmail,
-      sponsor_name: 'Fulano Company',
-      event_name: 'Show de Beltrano',
+      sponsor_name: 'Empresa Eventos',
+      event_name: 'Show de Rock',
     };
 
     await emailjs.send(

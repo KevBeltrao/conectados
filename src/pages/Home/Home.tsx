@@ -28,10 +28,10 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const allQuestsIsDone = progress === 1;
+  const areAllQuestsDone = progress === 1;
 
-    if (allQuestsIsDone) {
+  useEffect(() => {
+    if (areAllQuestsDone) {
       setIsModalOpen(true);
     }
   }, [progress]);
@@ -67,7 +67,7 @@ const Home: FC<HomeTypes> = ({ progress, points, quizState, getStatus }) => {
         ))}
       </QuestsWrapper>
 
-      {progress > 0.8 ? (
+      {areAllQuestsDone ? (
         <Button
           onClick={() => {
             setIsModalOpen(true);
